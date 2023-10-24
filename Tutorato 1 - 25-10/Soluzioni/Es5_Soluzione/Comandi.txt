@@ -1,0 +1,9 @@
+> g++ -o prova Main.cpp Persona.cpp
+> ./prova
+
+Stampa attesa
+
+Informazioni sul personaggio storico:
+Nome: Leonardo da Vinci
+Anno di nascita: 1452
+Anno di morte: 1519

@@ -44,38 +44,6 @@ orario orario::operator+(orario o)      //OPERATORE +
     aux.sec=(sec+o.sec)%86400;
     return aux;
 }
-
-orario orario::operator-(orario o)      //OPERATORE -
-{
-    orario aux;
-    aux.sec=(sec-o.sec)%86400;
-    return aux;
-}
-
-bool orario::operator==(const orario& o)    //OPRATORE ==
-{
-    if(sec==o.sec)
-        return true;
-    else
-        return false;
-}
-
-bool orario::operator>(orario o)        //OPERATORE >
-{
-    if(sec>o.sec)
-        return true;
-    else
-        return false;
-}
-
-bool orario::operator<(orario o)    //OPERATORE <
-{
-    if(sec<o.sec)
-        return true;
-    else
-        return false;
-}
-
 ostream& operator<<(ostream& os, const orario& o)   //OPERATORE <<
 {
     return os<<o.Ore()<<':'<<o.Minuti()<<':'<<o.Secondi();

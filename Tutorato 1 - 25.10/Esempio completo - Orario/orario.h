@@ -2,6 +2,9 @@
 #define ORARIO_H
 #include <iostream>
 using namespace std;
+
+// Separazione interfaccia (.h/definizione nome metodi e variabili)
+// da costruzione (.cpp - definizione corpo metodi)
 class orario
 {
     private:
@@ -20,13 +23,6 @@ class orario
         void StampaSecondi() const;
         static orario OraDiPranzo();
         orario operator+(orario);
-        orario operator-(orario);
-        bool operator==(const orario&);
-        bool operator>(orario);
-        bool operator<(orario);
-
-    protected:
-        int sec;
 };
 
 ostream& operator<<(ostream& os, const orario& o);

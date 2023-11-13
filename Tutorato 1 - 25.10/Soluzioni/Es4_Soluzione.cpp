@@ -35,11 +35,12 @@
  }
 
  /*
-    9 A01 ZERO
-    5 A01 UNO
-    3 A01 DUE
-    TRE
-    5 A01 5 A01 7 A01 B0 QUATTRO
-    5 A01 5 A01 Bc Ac Ac CINQUE
-    5 A01 5 A01 Bc Ac Ac SEI
+    9 A01 ZERO - stampa questo per primo perché è statica e viene inizializzata prima di tutto
+    5 A01 UNO - classica costruzione di default di un oggetto
+    3 A01 DUE  - costruzione di un oggetto con parametro
+    TRE - non stampa nulla perché forma solo il puntatore
+    5 A01 5 A01 7 A01 B0 QUATTRO - costruzione del temporaneo anonimo, oggetto di A e sottooggetto di B
+    5 A01 5 A01 Bc Ac Ac CINQUE - costruzione del temporaneo anonimo, oggetto di A, B di copia per tutti i parametri di fun e poi il numero
+    5 A01 5 A01 Bc Ac Ac SEI - stessa cosa di prima ma con a3
  */
+

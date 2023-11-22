@@ -13,10 +13,11 @@ gabriel.rovesti@studenti.unipd.it
 |      2     |  8 Novembre  | 8:30/10:30 |   2AB45  |
 |      3     |  15 Novembre | 8:30/10:30 |   2AB45  |
 |      4     |  22 Novembre | 8:30/10:30 |   2AB45  |
-|      5     |  6 Dicembre  | 8:30/10:30 |   2AB45  |
-|      6     |  20 Dicembre | 8:30/10:30 |   2AB45  |
-|      7     |  10 Gennaio  | 8:30/10:30 |   2AB45  |
-|      8     |  17 Gennaio  | 8:30/10:30 |   2AB45  |
+|      5     |  29 Novembre | 8:30/10:30 |   2AB45  |
+|      6     |  6 Dicembre  | 8:30/10:30 |   2AB45  |
+|      7     |  20 Dicembre | 8:30/10:30 |   2AB45  |
+|      8     |  10 Gennaio  | 8:30/10:30 |   2AB45  |
+|      9     |  17 Gennaio  | 8:30/10:30 |   2AB45  |
 
 ## Materiale di riferimento per progetti
 In questo profilo, trovate una serie di cartelle utili per il materiale di riferimento su Qt, [qui](https://github.com/Unipd-Object-Oriented-Programming)

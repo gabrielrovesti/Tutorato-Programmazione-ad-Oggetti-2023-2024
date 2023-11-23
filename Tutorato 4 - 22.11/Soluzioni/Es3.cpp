@@ -51,6 +51,16 @@ int main(){
 /*
 C1 C1 D0 E0 C1 D1 C1 C1 D0 E0 F0 C0 G0 
 
+Motivo della stampa doppia di "C1"
+Per costruire le variabili di una classe base, serve:
+1) Costruire uno spazio in memoria per creare l'oggetto di tipo C
+2) Costruire il C effettivo 
+Per costruire lo spazio in memoria, serve un temporaneo anonimo, che successivamente verrà gettato via. 
+
+Questo accade il primo giro (per tutte le sottoclassi), dato che sia D che E vengono costruite con un C;
+successivamente, costruisce gli oggetti finali, scendendo nelle sottoclassi e infine gli oggetti di G.
+
+Più dettagliatamente:
 1 -Stampa due volte C1 perché D e F ereditano privatamente da C, quindi non possono accedere al costruttore di C.
 Di conseguenza, il costruttore di D e F chiama il costruttore di C con un argomento, che è C1.
 2 - Stampa D0 per ordine di costruzione dentro la classe E, dove viene visto D

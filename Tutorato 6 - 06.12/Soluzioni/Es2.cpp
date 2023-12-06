@@ -73,7 +73,28 @@ A
 La possibilità di due risposte è dovuta al fatto che throw non lancia 
 direttamente l'oggetto usato, ma una sua copia. Viene quindi lanciato un T(ref)
 e non ref! Tale oggetto chiaramente ha tipo statico e dinamico uguale a T.
-Questa nozione non e' stata accennata in aula (anche perché era ignota al
-professore stesso). È stato deciso perciò di accettare anche delle risposte 
+
+In base al suo tipo, mantiene il tipo statico e anche il dinamico, in quanto il tipo dinamico qui puó fare match dati i const e quindi usa anche quello in fase di stampa.
+Altrimenti normalmente manterresti solo il tipo statico, insomma, il caso particolare di questo esercizio é la doppia stampa per i tipi dinamici diciamo, 
+dato piú che altro dai const e dal fatto di avere il riferimento costante di cui sopra, altrimenti ti basta il tipo statico perché l'eccezione si ferma 
+e stampa con il primo tipo che fa match, quindi che gli corrisponde.
+
+
+È stato deciso perciò di accettare anche delle risposte 
 alternative, seppur coerenti col comportamento del tipo dinamico degli oggetti
+
+Quindi:
+
+void Fun(const T& ref)
+Effettua un T(ref)
+E mantiene sia tipo statico sia tipo dinamico dell'argomento.
+
+Mentre: 
+
+void Fun(T& ref)
+Effettua un T(ref)
+E mantiene solo il tipo statico dell'argomento.
+
+
+
 */

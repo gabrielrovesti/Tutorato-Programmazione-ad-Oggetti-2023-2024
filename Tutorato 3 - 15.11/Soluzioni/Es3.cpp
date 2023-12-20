@@ -51,6 +51,19 @@ Compila
 */
 
 /*
+
+Fondamentalmente il motivo per cui compila o meno é dato dal match di tipo nella classe T template, che qui é di tipo char.
+Guarda anche l'amicizia: essa esiste associata solo per il tipo T1 di template, quindi le stampe andranno solo se il primo parametro di template é di tipo char. 
+
+Per esempio, la prima compila, dato che il parametro T viene sostituito da char e char e quindi essendo il template di tipo char funziona.
+La seconda non compila perché il primo parametro di template é tipo int, mentre il tuo template é di tipo char e non fa match.
+
+La terza nuovamente compila perché hai un T generico e quindi il primo parametro é di tipo char e fa match nuovamente.
+Essendo che il template ogni volta chiama il tipo char, allora lui se fa match come tipo sul primo parametro compila, per l'amicizia associata di fatto
+
+*/
+
+/*
 Il fatto che compili dipende essenzialmente dal tipo:
 - tu puoi vedere che <char> per la classe D
 - la classe C prende le invocazioni dei metodi

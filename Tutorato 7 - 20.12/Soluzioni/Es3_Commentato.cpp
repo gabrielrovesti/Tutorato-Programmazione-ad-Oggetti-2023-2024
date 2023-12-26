@@ -41,7 +41,7 @@ int main()
 {
     //6544233241
     std::cout<<fun(d,&d)<<fun(b,&d)<<fun(c,&d)<<fun(e,&d)
-    <<fun(d,&e)<<fun(c,&c)<<fun(e,&c)<<fun(b,&e)<<fun(c,&b)<<fun(b,&e);
+    <<fun(d,&e)<<fun(c,&c)<<fun(e,&c)<<fun(b,&e)<<fun(c,&b)<<fun(c,&e);
 }
 /*
 
@@ -65,7 +65,7 @@ Sappiamo che:
 una possibile stampa può essere (d, &d) date tutte le considerazioni
 
 - 5 = valgono le considerazioni di prima, ma entriamo nell'if;
-qusto significa che "p" è un b e il suo tipo non è esattamente d, quindi può essere solo B
+qusto significa che "p" è un b e il suo tipo non è esattamente d, quindi può sia B che E
 per quanto riguarda "y", sappiamo dagli if che non può essere né "C" né "E", quindi
 può essere di tipo D
 
@@ -79,13 +79,13 @@ descritte sopra, siamo un C o un sottotipo di C (dato che deve essere const C* e
 Di fatto, quindi, ci prendiamo direttamente (e, &d)
 
 - 2 - Questa volta entriamo nell'if per "y", quindi il secondo parametro
-sarà di tipo "e", mentre per quanto riguarda il primo, sappiamo che !p vale, quindi
+sarà di tipo "e", mentre per quanto riguarda il primo, sappiamo che p vale, quindi
 npn può essere di tipo B il primo parametro,, ma neanche di tipo C per l'altra parte della condizione.
-Possiamo quindi mettere (d, &e)
+Possiamo quindi mettere (d, &e) (va bene anche b, &e)
 
 - 3 - Per stampare "3", siamo sicuri che "y" sia di tipo C, mentre per quanto riguarda X
 possiamo affermare che valgano le prime due assegnazioni su "p" e su "q", che dicono rispettivamente
-possa essere un C costante oppure un D costante (quindi, può essere esattamente quel tipo o uno dei sottotipi).
+possa essere un B costante oppure un C costante (quindi, può essere esattamente quel tipo o uno dei sottotipi).
 Per questo stampiamo (c, &c)
 
 - 3 - Prendiamo per certo "c" per "y", per "x" prendiamo uno dei sottotipi di C, va bene per quanto scritto
@@ -99,8 +99,10 @@ Per questo, stampa (b, e)
 Sappiamo quindi che basta non essere quel tipo per "y", quindi possiamo mettere ad esempio "B", tipo del parametro "y" passato
 e poi un C/E per il primo parametro
 
-- 1: In questo caso, sappiamo che "y" è un E, poi per il primo parametro sappiamo
-che può essere un B, ma che non può essere un C, per fallire l'if
-Quindi, stampiamo con (b, &e) 
+- 1: Per entrare nell'if, il secondo parametro deve essere di tipo "e".
+Poi, abbiamo le due condizioni, che entrambi non valgono:
+- !p specifica che "x", quindi per "p", non sia un B (dato che const B* da cui viene tolto il const)
+- q specifica che il parametro "x" deve essere di tipo "const C*".
+Stampa corretta: c, &e
 
 */

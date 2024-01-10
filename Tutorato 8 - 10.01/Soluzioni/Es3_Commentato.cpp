@@ -46,7 +46,8 @@ list<const D *const> fun(const vector<const B*>&v){
             }
             //Cancellazione del const_iterator
             // cit = v.erase(cit); - procedura normale; è const_iterator, quindi la cosa corretta è
-            cit--; // 
+            B* ptr = const_cast<B*>(*cit);
+            delete ptr;
         }
         
         A* ptr = (*cit)->f();

@@ -54,7 +54,9 @@ list<const D *const> fun(const vector<const B*>&v){
             if(count > 2){
                 throw C();
             }
-            q--;
+            B* ptr = const_cast<B*>(*q);
+            delete ptr;
+
         }else{
             A* ptr = (*q)->f();
             if(ptr == nullptr){

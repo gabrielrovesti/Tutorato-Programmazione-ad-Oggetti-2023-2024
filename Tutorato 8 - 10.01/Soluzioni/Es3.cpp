@@ -62,6 +62,10 @@ list<const D *const> fun(const vector<const B*>&v){
             if(ptr == nullptr){
                 throw std::string("nullptr");
             }
+            //if(dynamic_cast<D*>(ptr) != nullptr && dynamic_cast<E*>(ptr) == nullptr){ //Completamente equivalente; per const correctness, viene mostrata la seconda soluzione
+                //result.push_back(dynamic_cast<D*>(ptr));
+            //}
+
             if(dynamic_cast<const D *const>(ptr) != nullptr && dynamic_cast<const E *const>(ptr) == nullptr){
                 result.push_back(dynamic_cast<const D *const>(ptr));
             }

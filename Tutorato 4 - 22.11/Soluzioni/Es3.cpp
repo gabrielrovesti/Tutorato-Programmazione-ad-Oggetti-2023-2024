@@ -49,6 +49,18 @@ int main(){
 }
 
 /*
+Motivo della stampa passo passo (partendo dalla fine):
+
+- Il G deve costruire oggetti di tipo C ed F che sono i campi della classe (quindi stampa F0, C0) e in ultimo il proprio G0
+
+- La classe G ha un campo di tipo E che viene costruito; questo è un E, che ha anche un D (D0), che viene costruito; sia D che E vengono costruiti con un C (C(2) e C(6), da cui i due C1 C1 prima di D0 ed E0 che vengono costruiti con quelli
+
+- Sullo stesso livello c'è D, che viene costruito con un C (C(1), quindi avrà C1 D1
+
+- le prime stampe sono date dal fatto di dover costruire, come detto, i campi di default delle classi, quindi siccome sullo stesso livello della gerarchia abbiamo E, prendiamo anche i campi necessari per costruire quella, quindi il campo D, che è anche un C e viene stampato un C1, quindi costruisce un oggetto di tipo D (D0) che ha bisogno ache di un C (C1) e quindi il default di E (E0)
+*/
+
+/*
 C1 C1 D0 E0 C1 D1 C1 C1 D0 E0 F0 C0 G0 
 
 Motivo della stampa doppia di "C1"
@@ -70,3 +82,4 @@ Di conseguenza, il costruttore di D e F chiama il costruttore di C con un argome
 6 - Stampa C0 per il costruttore di G, che richiede un E, il quale richiede un C, che viene costruito con C0
 7 - Infine, stampa G0 per il costruttore di G
 */
+

@@ -1,45 +1,37 @@
 #include <iostream>
-
+#include <vector>
+#include <list>
 using namespace std;
 
-class A{
-    public:
-    virtual ~A() =0;
+class B { 
+private:
+	list<double>* ptr;
+	virtual void m() =0; 
 };
 
-A::~A()=default;
+class C: virtual public B {};
 
-class B: public A{
-    public:
-        ~B()=default;
+class D: virtual public B { 
+private: 
+	int x;
 };
-class C: virtual public B{};
-class D: virtual public B{};
-class E: public C, public D{};
 
-
-int fun(const A& x, B* y){
-    A* p=const_cast<B*>(dynamic_cast<const B*>(&x));
-    auto q=dynamic_cast<const C*>(&x);
-
-    if(dynamic_cast<E*>(y)){
-        if(!p || q) return 1;
-        else return 2;
-    }
-
-    if(dynamic_cast<C*>(y)) return 3;
-    if(q) return 4;
-    if(p && typeid(*p)!=typeid(D)) return 5;
-
-    return 6;
-
-}
-
-B b; C c; D d; E e;
-
-int main()
-{
-    std::cout<<fun(d,&d)<<fun(b,&d)<<fun(c,&d)<<fun(e,&d)
-    <<fun(d,&e)<<fun(c,&c)<<fun(d,&c)<<fun(b,&e)<<fun(c,&b)<<fun(c,&e);
-}
-//QUESTA E' SOLO UNA DELLE SOLUZIONI POSSIBILI
+class E: public C, public D {
+private:
+	vector<int*> v; 
+public:
+	void m() {}
+	
+	// ridefinizione del costruttore di copia di E
+	E(const E& e): C(e), D(e), v(e.v) {};
+	
+	// ridefinizione dell'assegnazione di E come standard (non richiesto, ma la presentiamo)
+	E& operator=(const E& e){ 
+		C::operator=(e);
+		D::operator=(e);
+		for (int i; i < e.v.size(); ++i) {
+			v[i] = e.v[i];
+		}
+		return *this;
+	}
+};

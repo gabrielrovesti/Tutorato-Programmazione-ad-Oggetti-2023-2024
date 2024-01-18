@@ -1,7 +1,7 @@
 A <= B - Falso
 A <= C - Falso
 A <= D - Falso
-B <= A - Falso
+B <= A - Vero
 B <= C - Falso
 B <= D - Falso
 C <= A - Vero

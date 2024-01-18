@@ -1,14 +1,14 @@
-A<=B	FALSO
-A<=C	FALSO
-A<=D	FALSO
-B<=A	POSSIBILE
-B<=C	FALSO
-B<=D	FALSO
-C<=A	VERO	
-C<=B	FALSO
-C<=D	POSSIBILE
-D<=A	VERO
-D<=B	VERO
-D<=C	POSSIBILE
+A <= B	FALSO
+A <= C	FALSO
+A <= D	FALSO
+B <= A	FALSO
+B <= C	FALSO
+B <= D	FALSO
+C <= A	VERO	
+C <= B	FALSO
+C <= D	POSSIBILE
+D <= A	VERO
+D <= B	VERO
+D <= C	POSSIBILE
 
 Soluzione da vedere utile su questi esercizi = Sottotipi > Pippo_Topolino.Soluzione

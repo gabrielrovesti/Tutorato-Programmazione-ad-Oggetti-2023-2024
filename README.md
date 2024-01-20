@@ -19,8 +19,13 @@ gabriel.rovesti@studenti.unipd.it
 |      8     |  10 Gennaio  | 8:30/10:30 |   2AB45  |
 |      9     |  17 Gennaio  | 8:30/10:30 |   2AB45  |
 
+## Materiale di riferimento per altri esercizi
+
+- Archetipo95 - PAO-Esercizi [qui](https://github.com/Archetipo95/PAO-esercizi/)
+
 ## Materiale di riferimento per progetti
-In questo profilo, trovate una serie di cartelle utili per il materiale di riferimento su Qt, [qui](https://github.com/Unipd-Object-Oriented-Programming)
+
+Nel profilo indicato di seguito, trovate una serie di cartelle utili per il materiale di riferimento su Qt, [qui](https://github.com/Unipd-Object-Oriented-Programming)
 
 ## Suggerimenti
 

@@ -8,6 +8,7 @@ a.	se il numero N di puntatori rimossi dal vector v è maggiore di 2 allora vien
 a.	se “ptr” è nullo allora viene sollevata una eccezione std::string(“nullptr”);
 b.	“fun” ritorna la lista di tutti e soli questi puntatori “ptr” che: non sono nulli ed hanno un tipo dinamico che è sottotipo di D* e non è sottotipo di E*.
 */
+
 #include <iostream>
 #include <vector>
 #include <list>
@@ -45,20 +46,23 @@ public:
     virtual E* f() const { return nullptr; }
 };
 
-list<const D *const> fun(const vector<const B*>&v){
+list<const D *const> fun(vector<const B*>& v) {
     list<const D *const> result;
     int count = 0;
-    for (vector<const B*>::const_iterator q = v.begin(); q != v.end(); ++q) {
-        if(*q != nullptr && typeid(**q) == typeid(C)){
+
+    for (vector<const B*>::iterator it = v.begin(); it != v.end();) {
+        const B* q = *it;
+
+        if (q != nullptr && typeid(*q) == typeid(C)) {
             count++;
-            if(count > 2){
+            if (count > 2) {
                 throw C();
             }
-            B* ptr = const_cast<B*>(*q);
-            delete ptr;
 
-        }else{
-            A* ptr = (*q)->f();
+            it = v.erase(it); // Rimuovi l'elemento dal vettore
+            delete q;         // Libera la memoria dell'oggetto
+        } else {
+            A* ptr = q->f();
             if(ptr == nullptr){
                 throw std::string("nullptr");
             }
@@ -69,7 +73,11 @@ list<const D *const> fun(const vector<const B*>&v){
             if(dynamic_cast<const D *const>(ptr) != nullptr && dynamic_cast<const E *const>(ptr) == nullptr){
                 result.push_back(dynamic_cast<const D *const>(ptr));
             }
+
+            ++it; // Passa all'elemento successivo solo se non viene rimosso
         }
     }
+
     return result;
 }
+

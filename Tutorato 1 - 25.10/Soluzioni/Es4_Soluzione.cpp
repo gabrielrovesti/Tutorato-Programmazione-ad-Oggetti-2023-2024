@@ -44,3 +44,23 @@
     5 A01 5 A01 Bc Ac Ac SEI - stessa cosa di prima ma con a3
  */
 
+/*
+Più nello specifico (dettaglio):
+
+- prima stampa:  viene stampato l'oggetto statico con 9 poi viene chiamato il costruttore di default ridefinito, che sarebbe A(int k=5). L'unico che può chiamare, quindi 9, A01, UNO
+
+- seconda stampa: usa sempre il costruttore di default ridefinito, che non avendo un valore usa quello del default per l'oggetto a1 che viene costruito da zero. Quindi stampa 5, A01, UNO
+
+- terza stampa: ha già un valore che gli viene dato di default, non è una copia, va ad usare il valore che gli viene passato nel default piuttosto di 5, stessa logica: 3, A01, DUE
+
+- quarta stampa: non avviene nulla a parte l'assegnazione di un *A a un A& e non essendo tracciato l'operator= non provoca nulla al di là di TRE
+
+- quinta stampa: l'oggetto di tipo B richiede la costruzione di due elementi dell'array ar[2], da cui il trigger delle due stampe 5 A01 5 A01 (lo statico è sempre costruito prima di tutti). Poi, il corpo del costruttore crea un oggetto di tipo A con valore 7 assegnato ad un elemento di ar e traccia anche 7 A01. Infine, stampa B0, avendo costruito tutto ciò che serviva
+
+- sesta stampa: viene chiamata Fun il cui valore viene assegnato ad un A. Fondamentalmente, qui stiamo assegnando due riferimento dello stesso tipo, dato che chiamiamo "g" che contiene lo *this, quindi è come se facesse la copia (se noti, la logica interna di questa è letteralmente operator=) per questo, dato che usa un riferimento per il discorso detto, triggera la chiamata di due 5 A01 5 A01
+dato che deve costruire due oggetti per ar(2) [per il fatto che dentro "fun" esiste un parametro di tipo B che deve esistere e il costruttore di default assegna un valore ad ar(1), quindi deve esistere ar, ecco perché ne fa le due stampe] e poi la copia di B (Bc) comprese le due copie di A (Ac Ac) per i due oggetti del tipo ar[2]
+
+- settima stampa: logica uguale alla precedente: due trigger di 5 A01 5 A01 dato che ti serve crearti i due parametri A invocati dalla creazione dell'oggetto B con default essendo che fa parte del parametro di funzione Fun, da cui il resto e oi di nuovo Bc Ac Ac SEI
+
+*/
+
